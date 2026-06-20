@@ -7,7 +7,7 @@
 功能：
 1. 检测并裁剪：沉默(>1s)、语气词(嗯啊呃)、重复内容、废话
 2. 背景模糊 + 人物锐化 (OpenCV人脸检测)
-3. 智能字幕 (ASS格式，风尚黑体，重点词高亮，智能换行)
+3. 智能字幕 (ASS格式，Aa厚底黑 56号，重点词64号黄色高亮，智能换行)
 """
 
 import json
@@ -32,10 +32,10 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 TEMP_DIR.mkdir(exist_ok=True)
 
 # 字体设置
-FONT_NAME = "HYZhongHei 197"     # Windows注册名: 汉仪中黑 197 (如需风尚黑体请安装后改为"风尚黑体")
-FONT_FALLBACK = "SimHei"
-FONT_SIZE = 28           # 正文字号（参考样本32px，留余量）
-FONT_SIZE_HIGHLIGHT = 32 # 重点词字号
+FONT_NAME = "AaHouDiHei"         # Aa厚底黑（宝藏黑体风格）——已注册到系统
+FONT_FALLBACK = "zihunjingdianrunhei"  # 字魂经典润黑（备用）
+FONT_SIZE = 56            # 正文字号（横版960x544，56号合适）
+FONT_SIZE_HIGHLIGHT = 64  # 重点词字号
 FONT_COLOR = "&H00FFFFFF"      # 白色
 FONT_COLOR_HIGHLIGHT = "&H0000FFFF"  # 黄色 (ASS: &HAABBGGRR)
 
@@ -66,12 +66,12 @@ CORRECTIONS = {
     "蕾": "雷", "流": "留", "鞋": "写", "巳": "已",
 }
 
-# 重点词（高亮为黄色14号）
+# 重点词（高亮为黄色64号）
 KEY_TERMS = [
-    "八万", "十一万", "五位数", "红枫", "元宝枫",
+    "8万", "八万", "十一万", "五位数", "三个雷", "好几万",
     "汀步路", "绿化带", "循环泵", "冠幅", "树冠",
     "石板", "管线", "池壁", "施工队", "业主",
-    "动线", "水景", "检修口",
+    "动线", "水景", "检修口", "红枫", "元宝枫",
 ]
 
 # 数字模式（用于高亮）
