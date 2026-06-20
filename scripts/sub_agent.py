@@ -586,7 +586,7 @@ def build_ass_text(text):
         return text
 
     # 使用配置的字体大小
-    tags_close = f"{{\\fs{FONT_SIZE}\\c&H00FFFFFF&\\b0}}"
+    tags_close = f"{{\\fs{FONT_SIZE}\\c&H00FFFFFF&\\b1}}"
     tags_hl = f"{{\\fs{FONT_SIZE_HIGHLIGHT}\\c&H0000FFFF&\\b1}}"
 
     result = ""
