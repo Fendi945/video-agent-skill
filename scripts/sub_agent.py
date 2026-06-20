@@ -31,9 +31,9 @@ TEMP_DIR = PROJECT_DIR / "temp"
 OUTPUT_DIR.mkdir(exist_ok=True)
 TEMP_DIR.mkdir(exist_ok=True)
 
-# 字体设置（首选风尚黑体，系统未安装则使用汉仪中黑体）
-FONT_NAME = "汉仪中黑体"  # 如需风尚黑体请安装后改为此值
-FONT_FALLBACK = "黑体"
+# 字体设置
+FONT_NAME = "HYZhongHei 197"     # Windows注册名: 汉仪中黑 197 (如需风尚黑体请安装后改为"风尚黑体")
+FONT_FALLBACK = "SimHei"
 FONT_SIZE = 28           # 正文字号（参考样本32px，留余量）
 FONT_SIZE_HIGHLIGHT = 32 # 重点词字号
 FONT_COLOR = "&H00FFFFFF"      # 白色
