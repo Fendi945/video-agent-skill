@@ -7,7 +7,7 @@
 功能：
 1. 检测并裁剪：沉默(>1s)、语气词(嗯啊呃)、重复内容、废话
 2. 背景模糊 + 人物锐化 (OpenCV人脸检测)
-3. 智能字幕 (ASS格式，Aa厚底黑 56号，重点词64号黄色高亮，智能换行)
+3. 智能字幕 (ASS格式，汉仪中黑体加粗 54号，重点词60号黄色高亮，智能换行)
 """
 
 import json
@@ -32,10 +32,10 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 TEMP_DIR.mkdir(exist_ok=True)
 
 # 字体设置
-FONT_NAME = "AaHouDiHei"         # Aa厚底黑（宝藏黑体风格）——已注册到系统
-FONT_FALLBACK = "zihunjingdianrunhei"  # 字魂经典润黑（备用）
-FONT_SIZE = 56            # 正文字号（横版960x544，56号合适）
-FONT_SIZE_HIGHLIGHT = 64  # 重点词字号
+FONT_NAME = "HYZhongHei 197"     # 汉仪中黑体（Windows注册名，已预装）
+FONT_FALLBACK = "SimHei"
+FONT_SIZE = 54            # 正文字号
+FONT_SIZE_HIGHLIGHT = 60  # 重点词字号
 FONT_COLOR = "&H00FFFFFF"      # 白色
 FONT_COLOR_HIGHLIGHT = "&H0000FFFF"  # 黄色 (ASS: &HAABBGGRR)
 
@@ -66,7 +66,7 @@ CORRECTIONS = {
     "蕾": "雷", "流": "留", "鞋": "写", "巳": "已",
 }
 
-# 重点词（高亮为黄色64号）
+# 重点词（高亮为黄色60号加粗）
 KEY_TERMS = [
     "8万", "八万", "十一万", "五位数", "三个雷", "好几万",
     "汀步路", "绿化带", "循环泵", "冠幅", "树冠",
@@ -629,7 +629,7 @@ def write_ass(subtitles, path, width, height):
         "",
         "[V4+ Styles]",
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
-        f"Style: Default,{FONT_NAME},{FONT_SIZE},{FONT_COLOR},&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,3,1,2,10,10,120,134",
+        f"Style: Default,{FONT_NAME},{FONT_SIZE},{FONT_COLOR},&H000000FF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,3,1,2,10,10,120,134",
         "",
         "[Events]",
         "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
